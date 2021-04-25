@@ -4,6 +4,9 @@ compiler = Tk()
 compiler.title('Shakils IDE')
 
 def run():
+    ## here i am capturing all thing like forloop,whileloop all staff
+    code = editor.get('1.0',END)
+    exec(code)
     print('Your Code Will Be Run')
 
 ## We need to runbar (5line code)
