@@ -1,17 +1,23 @@
 ## Setting the div
 from tkinter import *
 
-##this is for pop up save file window and open file name 
-from tkinter.filedialog import asksaveasfilename, askopenfilenames
+##this is for pop up save file window and open file name
+from tkinter.filedialog import asksaveasfilename, askopenfilenames, askopenfilename
+
 compiler = Tk()
 compiler.title('Shakils IDE')
 
 def open_file():
-    path = asksaveasfilename(filetypes = [('Python Files ', '*.py')])
-    with open (path,'w') as file :
-         code = editor.get('1.0',END)
-         file.write(code)
+    path = askopenfilename(filetypes = [('Python Files ', '*.py')])
+    with open (path,'r') as file :
+## here w means that write
+         code = file.read()
+         editor.delete('1.0',END)
 
+## 1.0 MEANS INDEX 1.0 AND END MEANS TILL THE END OF THE DOCUMENT
+
+         editor.insert('1.0',code)
+## code means read form that file
 def save_as():
     path = asksaveasfilename(filetypes = [('Python Files ', '*.py')])
     with open (path,'w') as file :
@@ -31,7 +37,7 @@ menu_bar = Menu(compiler)
 
 
 file_bar =Menu(menu_bar,tearoff=0)
-file_bar.add_command(label='Open File',command = run)
+file_bar.add_command(label='Open File',command = open_file)
 file_bar.add_command(label='Open Folder',command = run)
 file_bar.add_command(label='Save',command = run)
 file_bar.add_command(label='Save As',command = save_as)
