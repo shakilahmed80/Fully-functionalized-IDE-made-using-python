@@ -6,7 +6,13 @@ from tkinter.filedialog import asksaveasfilename
 compiler = Tk()
 compiler.title('Shakils IDE')
 
+
+
 def save_as():
+    path = asksaveasfilename(filetypes = [('Python Files ', '*.py')])
+    with open (path,'w') as file :
+         code = editor.get('1.0',END)
+         file.write(code)
 
 
 def run():
@@ -24,7 +30,7 @@ file_bar =Menu(menu_bar,tearoff=0)
 file_bar.add_command(label='Open File',command = run)
 file_bar.add_command(label='Open Folder',command = run)
 file_bar.add_command(label='Save',command = run)
-file_bar.add_command(label='Save As',command = run)
+file_bar.add_command(label='Save As',command = save_as)
 file_bar.add_command(label='Exit',command = exit)
 menu_bar.add_cascade(label = 'File',menu = file_bar)
 
