@@ -1,7 +1,13 @@
 ## Setting the div
 from tkinter import *
+
+##this is for pop up save file window 
+from tkinter.filedialog import asksaveasfilename
 compiler = Tk()
 compiler.title('Shakils IDE')
+
+def save_as():
+
 
 def run():
     ## here i am capturing all thing like forloop,whileloop all staff
@@ -15,7 +21,11 @@ menu_bar = Menu(compiler)
 
 
 file_bar =Menu(menu_bar,tearoff=0)
-file_bar.add_command(label='Open',command = run)
+file_bar.add_command(label='Open File',command = run)
+file_bar.add_command(label='Open Folder',command = run)
+file_bar.add_command(label='Save',command = run)
+file_bar.add_command(label='Save As',command = run)
+file_bar.add_command(label='Exit',command = exit)
 menu_bar.add_cascade(label = 'File',menu = file_bar)
 
 
