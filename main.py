@@ -1,12 +1,16 @@
 ## Setting the div
 from tkinter import *
 
-##this is for pop up save file window 
-from tkinter.filedialog import asksaveasfilename
+##this is for pop up save file window and open file name 
+from tkinter.filedialog import asksaveasfilename, askopenfilenames
 compiler = Tk()
 compiler.title('Shakils IDE')
 
-
+def open_file():
+    path = asksaveasfilename(filetypes = [('Python Files ', '*.py')])
+    with open (path,'w') as file :
+         code = editor.get('1.0',END)
+         file.write(code)
 
 def save_as():
     path = asksaveasfilename(filetypes = [('Python Files ', '*.py')])
