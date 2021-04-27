@@ -7,6 +7,14 @@ from tkinter.filedialog import asksaveasfilename, askopenfilenames, askopenfilen
 compiler = Tk()
 compiler.title('Shakils IDE')
 
+file_path = ' '
+
+def set_file_path(path):
+    
+    global file_path 
+    file_path = path
+
+
 def open_file():
     path = askopenfilename(filetypes = [('Python Files ', '*.py')])
     with open (path,'r') as file :
@@ -17,6 +25,7 @@ def open_file():
 ## 1.0 MEANS INDEX 1.0 AND END MEANS TILL THE END OF THE DOCUMENT
 
          editor.insert('1.0',code)
+         set_file_path(path)
 ## code means read form that file
 def save_as():
     path = asksaveasfilename(filetypes = [('Python Files ', '*.py')])
