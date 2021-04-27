@@ -3,6 +3,7 @@ from tkinter.filedialog import asksaveasfilename, askopenfilenames, askopenfilen
 
 compiler = Tk()
 compiler.title('Shakils IDE')
+file_path = ''
 
 def set_file_path(path):
     
@@ -15,7 +16,6 @@ def open_file():
     with open (path,'r') as file :
          code = file.read()
          editor.delete('1.0',END)
-
          editor.insert('1.0',code)
          set_file_path(path)
 
