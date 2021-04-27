@@ -1,5 +1,5 @@
 from tkinter import *
-from tkinter.filedialog import asksaveasfilename, askopenfilenames, askopenfilename
+from tkinter.filedialog import asksaveasfilename, askopenfilename
 
 import subprocess 
 
@@ -20,10 +20,9 @@ def open_file():
         editor.insert('1.0', code)
         set_file_path(path)
 
-
 def save_as():
 
-    if file_path == '' :
+    if file_path == '':
        path = asksaveasfilename(filetypes=[('Python Files ', '*.py')])
 
     else:  
@@ -32,7 +31,6 @@ def save_as():
         code = editor.get('1.0', END)
         file.write(code)
         set_file_path(path)
-
 
 def run():
     if file_path == '':
@@ -43,13 +41,9 @@ def run():
     
     command = f'python {file_path}'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-
     output, error = process.communicate()
     code_output.insert('1.0', output)
     code_output.insert('1.0', error)
-
-
-
 
 menu_bar = Menu(compiler)
 
