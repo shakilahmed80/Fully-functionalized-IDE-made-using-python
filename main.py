@@ -35,23 +35,27 @@ def save_as():
        path = asksaveasfilename(filetypes=[('Python Files ', '*.py')])
 
     else:  
-        file = file_path
+        path = file_path
     with open(path,'w') as file:
         code = editor.get('1.0', END)
         file.write(code)
+        set_file_path(path)
 
 
 def run():
-   
+    if file_path == '':
+        save_promot = Toplevel()
+        text = label(save_promot,text ='Save your code')
+        text.pack()
+        return
 
     
-      command = f'python {file_path}'
+    command = f'python {file_path}'
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 
-     
-      process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-
-
-
+    output, error = process.communicate()
+    code_output.insert('1.0', output)
+    code_output.insert('1.0', error)
 
 
 
@@ -77,6 +81,8 @@ editor.pack()
 
 code_output = Text(height = 10) 
 code_output.pack()
+
+
 compiler.mainloop()
 
 
