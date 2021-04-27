@@ -20,7 +20,14 @@ def open_file():
          set_file_path(path)
 
 def save_as():
-    path = asksaveasfilename(filetypes = [('Python Files ', '*.py')])
+    
+    if file_path == '' :
+
+        path = asksaveasfilename(filetypes = [('Python Files ', '*.py')])
+    
+    else :
+        path = file_path
+    
     with open (path,'w') as file :
          code = editor.get('1.0',END)
          file.write(code)
@@ -38,7 +45,7 @@ menu_bar = Menu(compiler)
 file_bar =Menu(menu_bar,tearoff=0)
 file_bar.add_command(label='Open File',command = open_file)
 file_bar.add_command(label='Open Folder',command = run)
-file_bar.add_command(label='Save',command = run)
+file_bar.add_command(label='Save',command = save_as)
 file_bar.add_command(label='Save As',command = save_as)
 file_bar.add_command(label='Exit',command = exit)
 menu_bar.add_cascade(label = 'File',menu = file_bar)
