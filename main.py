@@ -37,7 +37,7 @@ def save_as():
 def run():
     if file_path == '':
         save_promot = Toplevel()
-        text = label(save_promot, text ='Save your code')
+        text = label(save_promot,text='Save your code')
         text.pack()
         return
     
