@@ -7,13 +7,9 @@ compiler = Tk()
 compiler.title('Shakils IDE')
 file_path = ''   
 
-
-
-
 def set_file_path(path):
     global file_path
     file_path = path
-
 
 def open_file():
     path = askopenfilename(filetypes=[('Python Files ', '*.py')])
@@ -21,12 +17,8 @@ def open_file():
         
         code = file.read()
         editor.delete('1.0', END)
-
-     
-
         editor.insert('1.0', code)
         set_file_path(path)
-
 
 
 def save_as():
@@ -45,10 +37,9 @@ def save_as():
 def run():
     if file_path == '':
         save_promot = Toplevel()
-        text = label(save_promot,text ='Save your code')
+        text = label(save_promot, text ='Save your code')
         text.pack()
         return
-
     
     command = f'python {file_path}'
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
