@@ -3,15 +3,15 @@ from tkinter.filedialog import asksaveasfilename, askopenfilename
 
 import subprocess
 
+
 compiler = Tk()
-compiler.title('Shakils IDE')
+compiler.title('Shakils IDE') #title
 file_path = ''
 
 
 def set_file_path(path):
     global file_path
     file_path = path
-
 
 def open_file():
     path = askopenfilename(filetypes=[('Python Files ', '*.py')])
