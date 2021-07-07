@@ -20,7 +20,6 @@ def open_file():
         editor.insert('1.0', code)
         set_file_path(path)
 
-
 def save_as():
     if file_path == '':
         path = asksaveasfilename(filetypes=[('Python Files ', '*.py')])
