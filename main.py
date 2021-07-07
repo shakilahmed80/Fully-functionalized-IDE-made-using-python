@@ -25,6 +25,7 @@ def save_as():
 
     else:
         path = file_path
+   
     with open(path, 'w') as file:
         code = editor.get('1.0', END)
         file.write(code)
