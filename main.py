@@ -46,7 +46,6 @@ output, error = process.communicate()
 code_output.insert('1.0', output)
 code_output.insert('1.0', error)
 
-
 menu_bar = Menu(compiler)
 
 file_bar = Menu(menu_bar, tearoff=0)
