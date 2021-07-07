@@ -3,7 +3,6 @@ from tkinter.filedialog import asksaveasfilename, askopenfilename
 
 import subprocess
 
-
 compiler = Tk()
 compiler.title('Shakils IDE') #title
 file_path = ''
