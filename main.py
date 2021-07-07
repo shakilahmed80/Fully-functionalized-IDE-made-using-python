@@ -31,7 +31,6 @@ def save_as():
         file.write(code)
         set_file_path(path)
 
-
 def run():
     if file_path == '':
         save_promot = Toplevel()
