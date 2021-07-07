@@ -40,11 +40,11 @@ def run():
         text.pack()
         return
 
-    command = f'python {file_path}'
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-    output, error = process.communicate()
-    code_output.insert('1.0', output)
-    code_output.insert('1.0', error)
+command = f'python {file_path}'
+process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+output, error = process.communicate()
+code_output.insert('1.0', output)
+code_output.insert('1.0', error)
 
 
 menu_bar = Menu(compiler)
