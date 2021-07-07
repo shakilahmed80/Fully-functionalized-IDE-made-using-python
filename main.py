@@ -8,7 +8,6 @@ compiler = Tk()
 compiler.title('Shakils IDE') #title
 file_path = ''
 
-
 def set_file_path(path):
     global file_path
     file_path = path
